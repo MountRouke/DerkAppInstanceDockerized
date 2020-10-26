@@ -15,6 +15,11 @@ async def main():
   await server.start()
   app = DerkAppInstance(browser_logs=True)
   await app.start()
-  await app.run_session()
+  for i in range(2):
+    # NOTE: We need to reload the page between episodes when using XVFB
+    await app.reload()
+    await app.create_session()
+    await app.connect_to_agent_hosts()
+    await app.run_episode()
 
 asyncio.get_event_loop().run_until_complete(main())
