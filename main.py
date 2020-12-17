@@ -13,7 +13,7 @@ async def run_session(env: DerkSession):
 async def main():
   server = DerkAgentServer(run_session, port=8788)
   await server.start()
-  app = DerkAppInstance(browser_logs=True)
+  app = DerkAppInstance(browser_logs=True, chrome_args=['--use-gl=desktop'])
   await app.start()
   for i in range(2):
     # NOTE: We need to reload the page between episodes when using XVFB
