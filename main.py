@@ -21,5 +21,6 @@ async def main():
     await app.create_session()
     await app.connect_to_agent_hosts()
     await app.run_episode()
+    await app.print_team_stats()
 
 asyncio.get_event_loop().run_until_complete(main())

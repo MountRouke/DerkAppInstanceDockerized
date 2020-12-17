@@ -12,6 +12,5 @@ COPY start.sh ./
 RUN chmod +x start.sh
 
 EXPOSE 8789
-ENV DERK_CHROME_EXECUTABLE chromium
 
 CMD ["/start.sh"]
